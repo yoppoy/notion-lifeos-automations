@@ -1,0 +1,32 @@
+{
+  "name": "notion-habits",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:yoppoy/notion-habbits.git",
+  "author": "Yoppoy",
+  "license": "MIT",
+  "scripts": {
+    "generate habits": "tsc ./src/generate-habits",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint ./ --ext .ts,.js"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn lint"
+    }
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.10.0",
+    "@typescript-eslint/parser": "^5.10.0",
+    "eslint": "^8.7.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-unused-imports": "^2.0.0",
+    "prettier": "^2.5.1",
+    "typescript": "^4.5.4"
+  },
+  "dependencies": {
+    "husky": "^7.0.4"
+  }
+}
