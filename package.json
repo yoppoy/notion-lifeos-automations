@@ -2,11 +2,11 @@
   "name": "notion-habits",
   "version": "1.0.0",
   "main": "index.js",
-  "repository": "git@github.com:yoppoy/notion-habbits.git",
+  "repository": "git@github.com:yoppoy/notion-habits.git",
   "author": "Yoppoy",
   "license": "MIT",
   "scripts": {
-    "generate habits": "tsc ./src/generate-habits",
+    "generate-habits": "ts-node ./src/generate-habits.ts",
     "typecheck": "tsc --noEmit",
     "lint": "eslint ./ --ext .ts,.js"
   },
@@ -27,6 +27,11 @@
     "typescript": "^4.5.4"
   },
   "dependencies": {
-    "husky": "^7.0.4"
+    "@notionhq/client": "^0.4.12",
+    "dotenv": "^14.2.0",
+    "envalid": "^7.2.2",
+    "husky": "^7.0.4",
+    "moment": "^2.29.1",
+    "ts-node": "^10.4.0"
   }
 }
