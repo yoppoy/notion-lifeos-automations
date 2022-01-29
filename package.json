@@ -7,6 +7,7 @@
   "license": "MIT",
   "scripts": {
     "generate-habits": "ts-node -e 'require(\"./src/services/habits.ts\").createHabitPagesForNextWeek()'",
+    "update-completed-tasks-done-date": "ts-node -e 'require(\"./src/services/tasks.ts\").updateDoneDateForCompletedTasks()'",
     "typecheck": "tsc --noEmit",
     "lint": "eslint ./ --ext .ts,.js"
   },

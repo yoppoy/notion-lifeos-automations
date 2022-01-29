@@ -1,17 +1,13 @@
 import moment from 'moment';
 
 import env from '../utils/env-validation';
-import {
-  notionClient,
-  NOTION_DATE_PROPERTY,
-  NOTION_DAYS_PROPERTY,
-} from '../utils/notion';
+import { notionClient, NOTION_PROPERTIES } from '../utils/notion';
 
 const habitPageAlreadyExists = async (date: string) => {
   const queryResult = await notionClient.databases.query({
     database_id: env.NOTION_HABIT_DATABASE_ID,
     filter: {
-      property: NOTION_DATE_PROPERTY,
+      property: NOTION_PROPERTIES.habits.date,
       date: {
         equals: date,
       },
@@ -30,7 +26,7 @@ const createHabitPage = async (date: moment.Moment) => {
         database_id: env.NOTION_HABIT_DATABASE_ID,
       },
       properties: {
-        [NOTION_DAYS_PROPERTY]: {
+        [NOTION_PROPERTIES.habits.day]: {
           title: [
             {
               text: {
@@ -39,7 +35,7 @@ const createHabitPage = async (date: moment.Moment) => {
             },
           ],
         },
-        [NOTION_DATE_PROPERTY]: {
+        [NOTION_PROPERTIES.habits.date]: {
           date: {
             start: moment(date).format('YYYY-MM-DD'),
             end: null,
@@ -67,7 +63,7 @@ export const createHabitPagesForNextWeek = async () => {
     );
 
     if (!pageAlreadyExists) {
-      createHabitPage(date);
+      await createHabitPage(date);
     } else {
       console.log(`Page ${moment(date).format('YYYY-MM-DD')} already exists`);
     }
