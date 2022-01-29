@@ -1,15 +1,11 @@
-import { Client } from '@notionhq/client';
-import { CreatePageParameters } from '@notionhq/client/build/src/api-endpoints';
 import moment from 'moment';
 
-import env from './utils/env-validation';
-
-const NOTION_DATE_PROPERTY = 'Date';
-const NOTION_DAYS_PROPERTY = 'Day';
-
-const notionClient = new Client({
-  auth: env.NOTION_SECRET,
-});
+import env from '../utils/env-validation';
+import {
+  notionClient,
+  NOTION_DATE_PROPERTY,
+  NOTION_DAYS_PROPERTY,
+} from '../utils/notion';
 
 const habitPageAlreadyExists = async (date: string) => {
   const queryResult = await notionClient.databases.query({
@@ -57,20 +53,15 @@ const createHabitPage = async (date: moment.Moment) => {
   }
 };
 
-const createHabitPagesForNextWeek = async () => {
+export const createHabitPagesForNextWeek = async () => {
   const nextWeekStartDate = moment().add(1, 'weeks').startOf('isoWeek');
   const nextWeekEndDate = moment().add(1, 'weeks').endOf('isoWeek');
 
-  console.log('---> ', nextWeekEndDate);
   for (
     let date = moment(nextWeekStartDate);
     date.diff(nextWeekEndDate, 'days', true) <= 0;
     date.add(1, 'days')
   ) {
-    console.log(
-      moment(date).format('YYYY-MM-DD'),
-      date.diff(nextWeekEndDate, 'days'),
-    );
     const pageAlreadyExists = await habitPageAlreadyExists(
       moment(date).format('YYYY-MM-DD'),
     );
@@ -82,5 +73,3 @@ const createHabitPagesForNextWeek = async () => {
     }
   }
 };
-
-createHabitPagesForNextWeek();

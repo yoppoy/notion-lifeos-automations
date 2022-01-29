@@ -6,7 +6,7 @@
   "author": "Yoppoy",
   "license": "MIT",
   "scripts": {
-    "generate-habits": "ts-node ./src/generate-habits.ts",
+    "generate-habits": "ts-node -e 'require(\"./src/services/habits.ts\").createHabitPagesForNextWeek()'",
     "typecheck": "tsc --noEmit",
     "lint": "eslint ./ --ext .ts,.js"
   },
