@@ -63,6 +63,8 @@ export const updateDoneDateForCompletedTasks = async () => {
     newCompletedTasks.map((task) =>
       updateDoneDateForCompletedTask(task as Task),
     );
+  } else {
+    console.log('completed-tasks.json not found');
   }
   storeCompletedTasksInFile(currentCompletedTasks);
 };
