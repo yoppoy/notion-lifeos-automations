@@ -1,6 +1,6 @@
-# Notion habits
+# Notion LifeOS automations
 
-A project to automate my habit tracking via notion
+This project enables me to automate certain actions for my lifeOS.
 
 ## Environment variables
 

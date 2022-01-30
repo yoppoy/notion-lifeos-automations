@@ -1,8 +1,8 @@
 {
-  "name": "notion-habits",
+  "name": "notion-lifeos-automations",
   "version": "1.0.0",
   "main": "index.js",
-  "repository": "git@github.com:yoppoy/notion-habits.git",
+  "repository": "git@github.com:yoppoy/notion-lifeos-automations.git",
   "author": "Yoppoy",
   "license": "MIT",
   "scripts": {
