@@ -32,7 +32,7 @@ jobs:
       - name: Download last completed tasks
         uses: actions/download-artifact@v2
         with:
-          name: completed-tasks
+          name: completed-tasks-list
     
       - name: Update done date for tasks completed today
         run: yarn run update-completed-tasks-done-date
@@ -40,6 +40,6 @@ jobs:
       - name: Retain completed-tasks.json
         uses: actions/upload-artifact@v2
         with:
-          name: completed-tasks
+          name: completed-tasks-list
           path: ./completed-tasks.json
           retention-days: 1
