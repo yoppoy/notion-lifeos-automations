@@ -34,7 +34,6 @@ jobs:
         with:
           workflow: tasks.yml
           name: completed-tasks-list
-          workflow_conclusion: neutral
     
       - name: Display structure of downloaded files
         run: ls
