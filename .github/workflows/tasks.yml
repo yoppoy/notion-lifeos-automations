@@ -32,7 +32,11 @@ jobs:
       - name: Download last completed tasks
         uses: actions/download-artifact@v2
         with:
-          name: completed-tasks-list
+          path: .
+    
+      - name: Display structure of downloaded files
+        run: ls -R
+        working-directory: .
     
       - name: Update done date for tasks completed today
         run: yarn run update-completed-tasks-done-date
