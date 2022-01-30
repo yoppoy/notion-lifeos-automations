@@ -5,7 +5,7 @@ name: Update done date for lyf tasks
 # Controls when the workflow will run
 on:
   schedule:
-    - cron: '0 */2 * * *' #every 2 hours
+    - cron: '15 21 * * *' #every 2 hours
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -31,7 +31,7 @@ jobs:
       - name: Update done date for tasks completed today
         run: yarn run update-completed-tasks-done-date
 
-      - name: 'Upload completed tasks list'
+      - name: Retain completed-tasks.json
         uses: actions/upload-artifact@v2
         with:
           name: completed-tasks-list
