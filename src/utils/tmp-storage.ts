@@ -17,4 +17,5 @@ export const storeCompletedTasksInFile = (completedTasks: Array<unknown>) => {
     COMPLETED_TASK_LIST_FILE_URL,
     JSON.stringify({ tasks: completedTasks }),
   );
+  console.log(`Added ${completedTasks.length} to completed-tasks.json`);
 };
