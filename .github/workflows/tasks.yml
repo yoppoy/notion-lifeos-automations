@@ -28,13 +28,18 @@ jobs:
       - uses: actions/checkout@v2
       - name: Install dependencies
         run: yarn install
-
+      
+      - name: Download last completed tasks
+        uses: actions/download-artifact@v2
+        with:
+          name: completed-tasks
+    
       - name: Update done date for tasks completed today
         run: yarn run update-completed-tasks-done-date
 
       - name: Retain completed-tasks.json
         uses: actions/upload-artifact@v2
         with:
-          name: completed-tasks-list
+          name: completed-tasks
           path: ./completed-tasks.json
           retention-days: 1
