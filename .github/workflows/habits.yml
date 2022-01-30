@@ -19,6 +19,7 @@ jobs:
     environment: production
     env: 
       NOTION_HABIT_DATABASE_ID: ${{ secrets.NOTION_HABIT_DATABASE_ID }}
+      NOTION_TASK_DATABASE_ID: ${{ secrets.NOTION_TASK_DATABASE_ID }}
       NOTION_SECRET: ${{ secrets.NOTION_SECRET }}
 
     # Steps represent a sequence of tasks that will be executed as part of the job
