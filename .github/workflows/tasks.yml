@@ -29,13 +29,15 @@ jobs:
       - name: Install dependencies
         run: yarn install
       
-      - name: Download last completed tasks
-        uses: actions/download-artifact@v2
+      - name: Download last list of completed tasks
+        uses: dawidd6/action-download-artifact@v2
         with:
-          path: .
+          workflow: tasks.yml
+          name: completed-tasks-list
+          workflow_conclusion: neutral
     
       - name: Display structure of downloaded files
-        run: ls -R
+        run: ls
         working-directory: .
     
       - name: Update done date for tasks completed today
